@@ -1,0 +1,10 @@
+/*
+!.config/
+.config/*
+!.config/nvim/
+!.config/ghostty/
+!.config/git/
+!.config/homebrew/
+!.gitignore
+!.zshrc
+!README.md
