@@ -1,0 +1,47 @@
+[user]
+	name = Annie Hedgpeth
+	email = 18335499+anniehedgpeth@users.noreply.github.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = cache
+[http]
+	postBuffer = 524288000
+
+[init]
+  defaultBranch = main
+
+
+[core]
+  editor = nvim
+  autocrlf = input
+
+[pull]
+  rebase = true # rebase when pulling
+  ff = only # avoid merge messes
+
+[push]
+  default = current      # Pushes current branch to matching name
+  autoSetupRemote = true # Automatically sets up remote tracking
+
+[merge]
+  conflictstyle = diff3  # Shows original content in conflicts
+  ff = false            # Prevents accidental fast-forwards
+
+[rebase]
+  autoStash = true      # Automatically stash/unstash during rebase
+
+[diff]
+  algorithm = patience  # More intuitive diff outputs
+
+[color]
+  ui = auto             # Enables color in Git output
+
+[fetch]
+  prune = true         # Cleans up deleted remote branches
+
+[help]
+  autocorrect = 1      # Automatically corrects minor command typos
