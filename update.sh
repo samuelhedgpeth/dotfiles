@@ -1,4 +1,3 @@
-
 CURRENT_DIR=$(pwd)
 
 echo Ensuring brew is up to date
@@ -17,6 +16,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
   echo "Oh My Zsh is already installed"
+fi
+
+echo "Ensuring Rust is installed..."
+if ! command -v rustup &> /dev/null; then
+  echo "Rust not found. Installing..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+else
+  echo "Rust is already installed"
 fi
 
 echo Linking ~./people to app data directory
