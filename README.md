@@ -27,3 +27,7 @@ Now you should be able to run any swift or XCode project:
 ```shell
 just cs
 ```
+
+### XCode Keybindings
+
+Follow [these instructions](https://gist.github.com/hoishing/2b024e625024e5b409f0bb5941688375) to set up keybindings.
