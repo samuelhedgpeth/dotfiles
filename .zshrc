@@ -1,57 +1,89 @@
-# AUTOCOMPLETION
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# initialize autocompletion
-autoload -U compinit && compinit
-
-# history setup
-setopt SHARE_HISTORY
-HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=999
-setopt HIST_EXPIRE_DUPS_FIRST
-# autocompletion using arrow keys (based on history)
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
-
-export ZSH=$HOME/.local/share/oh-my-zsh
-source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
-
-plugins=(
-    git
-    docker
-    colored-man-pages
-    colorize
-    pip
-    brew
-    osx
-    zsh-syntax-highlighting
-    zsh-docker
-    zsh-autosuggestions
-)
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
-# pnpm
-export PNPM_HOME="/Users/anniehedgpeth/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# Download zinit if it is not there yet
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# source and load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
 # homebrew
-# allows for `brew bundle install` to be run anywhere
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_BUNDLE_FILE="~/.config/homebrew/Brewfile"
 export HOMEBREW_NO_ENV_HINTS=true
 
+# plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::command-not-found
+
+# Load completions
+autoload -U compinit && compinit
+
+# Keybindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab-complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Aliases
+alias ls='ls --color'
+alias c='clear'
+
 # aliases
-alias config='/usr/bin/git --git-dir=/Users/anniehedgpeth/.cfg/ --work-tree=/Users/anniehedgpeth'
+# navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ls='ls -lah'
+alias ~='cd ~'
+
+# git
+alias gs='git status'
+alias gp='git pull'
+
+# configuration
+alias update='./update.sh' 
+
+# personal 
+alias app='cd ~/code/github.com/hedge-ops/app/'
+alias dev='app && code'
+# alias learning='cd ~/source/github/anniehedgpeth/learning/ '
+# alias learn='learning && code'
+alias people='cd ~/people'
+alias dotfiles='cd ~/dotfiles'
+alias j='just'
+alias lg='lazygit'
+
+# secrets, see template for details
+[ -f "$HOME/.env" ] && source "$HOME/.env"
+
+# Shell integrations
+eval "$(fzf --zsh)"
+
+# Starship
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)"
