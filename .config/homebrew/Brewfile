@@ -14,6 +14,7 @@ brew "cargo-binstall"
 brew "cargo-nextest"
 brew "just"
 brew "libffi"
+brew "rustup"
 
 # swift
 brew "fastlane"
