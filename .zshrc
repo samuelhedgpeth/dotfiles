@@ -69,7 +69,7 @@ alias gp='git pull'
 alias update='./update.sh' 
 
 # personal 
-alias app='cd ~/code/github/hedge-ops/app/'
+alias app='cd ~/source/github/hedge-ops/app/'
 alias dev='app && code'
 # alias learning='cd ~/source/github/anniehedgpeth/learning/ '
 # alias learn='learning && code'
