@@ -25,4 +25,5 @@ gh repo clone anniehedgpeth/dotfiles
 
 echo "${GREEN}Complete!$RESET}"
 echo "${GREEN}1. Install XCode from the App Store and start it${RESET}"
-echo "${GREEN}2. Go to ~/dotfiles and run update.sh${RESET}"
+echo "${GREEN}2. Restart Terminal${RESET}"
+echo "${GREEN}3. Go to ~/dotfiles and run update.sh${RESET}"
