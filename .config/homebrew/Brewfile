@@ -1,29 +1,37 @@
+# terminal
 tap "homebrew/bundle"
-tap "sambadevi/powerlevel9k"
 cask "ghostty"
-cask "slack"
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
-brew "fastlane"
-brew "cargo-binstall"
-brew "cargo-nextest"
-brew "fonttools"
 brew "fzf"
 brew "gh"
 brew "git"
+brew "starship"
+brew "tree"
+
+# rust
+brew "cargo-binstall"
+brew "cargo-nextest"
 brew "just"
 brew "libffi"
-brew "node"
-brew "pnpm"
+
+# swift
+brew "fastlane"
 brew "ruby-install"
-brew "starship"
 brew "swiftformat"
 brew "swiftlint"
-brew "tree"
 brew "xcodegen"
 brew "xcode-build-server"
-brew "zsh-autosuggestions"
-brew "sambadevi/powerlevel9k/powerlevel9k"
+
+# web
+brew "node"
+brew "pnpm"
+
+# macOS
+cask "slack"
+brew "fonttools"
+
+# vscode
 cask "visual-studio-code"
 vscode "a11ywatch.vscode-a11ywatch-extension"
 vscode "alexcvzz.vscode-sqlite"

@@ -101,6 +101,12 @@ Finally, open System Settings and configure the mac:
 - Trackpad -> Tracking Speed -> 8/10
 - Printers & Scanners -> Add Printer, Scanner or Fax... (follow prompts)
 
+### XCode Key Bindings
+
+- Copy contents from `https://gist.githubusercontent.com/hoishing/2b024e625024e5b409f0bb5941688375/raw/78e39d535d201af024221f28ffcb02b0a1903249/VSCode.idekeybindings`
+- Paste into `~/Library/Developer/Xcode/UserData/KeyBindings/VSCode.idekeybindings`
+- In Xcode Settings -> Key Bindings, select VSCode
+
 ## Testing
 
 - Build `app` with `just i`
