@@ -16,7 +16,7 @@
 
 
 [core]
-  editor = nvim
+  editor = code
   autocrlf = input
 
 [pull]
@@ -36,6 +36,7 @@
 
 [diff]
   algorithm = patience  # More intuitive diff outputs
+	tool = code
 
 [color]
   ui = auto             # Enables color in Git output
