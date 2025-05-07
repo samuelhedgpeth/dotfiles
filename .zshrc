@@ -6,6 +6,9 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # source and load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_BUNDLE_FILE="~/.config/homebrew/Brewfile"
@@ -64,6 +67,7 @@ alias ~='cd ~'
 # git
 alias gs='git status'
 alias gp='git pull'
+alias gcom='git checkout main'
 
 # configuration
 alias update='./update.sh' 
