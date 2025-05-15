@@ -1,6 +1,6 @@
 # dotfiles
 
-This repository manages the dotfiles for Annie Hedgpeth.
+This repository manages the dotfiles for samuel Hedgpeth.
 
 ## Reset Mac
 
@@ -11,7 +11,7 @@ See [this article](https://support.apple.com/en-us/102664)
 When setting up a new machine, run this command in Terminal:
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anniehedgpeth/dotfiles/refs/heads/main/setup.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/samuelhedgpeth/dotfiles/refs/heads/main/setup.sh)"
 ```
 
 This will:

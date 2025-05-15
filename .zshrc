@@ -75,7 +75,7 @@ alias update='./update.sh'
 # personal 
 alias app='cd ~/source/github/hedge-ops/app/'
 alias dev='app && code'
-# alias learning='cd ~/source/github/anniehedgpeth/learning/ '
+# alias learning='cd ~/source/github/samuelhedgpeth/learning/ '
 # alias learn='learning && code'
 alias people='cd ~/people'
 alias dotfiles='cd ~/dotfiles'

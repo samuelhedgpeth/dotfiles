@@ -7,8 +7,8 @@ echo "${GREEN}Ensuring Homebrew is installed${GREEN}"
 if ! command -v brew &>/dev/null; then
   echo "${BLUE}Homebrew not found. Installing Homebrew...${RESET}"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo >>/Users/anniehedgpeth/.zprofile
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/anniehedgpeth/.zprofile
+  echo >>/Users/samuelhedgpeth/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/samuelhedgpeth/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "${GREEN}Homebrew is already installed.${RESET}"
@@ -21,7 +21,7 @@ echo "${GREEN}Ensuring GitHub is Authenticated${RESET}"
 gh auth login
 
 echo "${GREEN}Cloning dotfiles repo${RESET}"
-gh repo clone anniehedgpeth/dotfiles
+gh repo clone samuelhedgpeth/dotfiles
 
 echo "${GREEN}Complete!$RESET}"
 echo "${GREEN}1. Install XCode from the App Store and start it${RESET}"
